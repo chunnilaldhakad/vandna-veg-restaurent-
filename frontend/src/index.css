@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        
+        /* Light mode - Leafy green, orange, cream, berry tones */
+        --background: 0.98 0.01 140;
+        --foreground: 0.2 0.02 140;
+        --card: 1 0 0;
+        --card-foreground: 0.2 0.02 140;
+        --popover: 1 0 0;
+        --popover-foreground: 0.2 0.02 140;
+        --primary: 0.55 0.15 145;
+        --primary-foreground: 0.98 0.01 140;
+        --secondary: 0.65 0.18 50;
+        --secondary-foreground: 0.98 0.01 50;
+        --muted: 0.95 0.01 140;
+        --muted-foreground: 0.5 0.02 140;
+        --accent: 0.92 0.02 140;
+        --accent-foreground: 0.2 0.02 140;
+        --destructive: 0.55 0.22 15;
+        --destructive-foreground: 0.98 0.01 15;
+        --border: 0.88 0.01 140;
+        --input: 0.88 0.01 140;
+        --ring: 0.55 0.15 145;
+    }
+
+    .dark {
+        /* Dark mode - Deep gradients with vibrant accents */
+        --background: 0.12 0.02 200;
+        --foreground: 0.95 0.01 140;
+        --card: 0.18 0.03 160;
+        --card-foreground: 0.95 0.01 140;
+        --popover: 0.15 0.03 160;
+        --popover-foreground: 0.95 0.01 140;
+        --primary: 0.65 0.18 145;
+        --primary-foreground: 0.12 0.02 145;
+        --secondary: 0.72 0.20 50;
+        --secondary-foreground: 0.12 0.02 50;
+        --muted: 0.25 0.03 160;
+        --muted-foreground: 0.65 0.02 140;
+        --accent: 0.35 0.05 160;
+        --accent-foreground: 0.95 0.01 140;
+        --destructive: 0.60 0.24 15;
+        --destructive-foreground: 0.95 0.01 15;
+        --border: 1 0 0 / 10%;
+        --input: 1 0 0 / 15%;
+        --ring: 0.65 0.18 145;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+    }
+}
+
+@layer utilities {
+    .glass-effect {
+        @apply backdrop-blur-md bg-white/10 border border-white/20;
+    }
+    
+    .text-gradient {
+        @apply bg-gradient-to-r from-emerald-400 to-orange-400 bg-clip-text text-transparent;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotate(120deg);
+    }
+    66% {
+        transform: translateY(-10px) rotate(240deg);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
